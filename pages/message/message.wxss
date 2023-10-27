@@ -1,1 +1,80 @@
 /* pages/message/message.wxss */
+.van-swipe-cell__left,
+.van-swipe-cell__right {
+    display: inline-block;
+    width: 130rpx;
+    height: 150rpx;
+}
+
+.van-swipe-cell__left .del,
+.van-swipe-cell__right .del {
+    background-color: red;
+    height: 75rpx;
+    margin-top: 38rpx;
+    margin-right: 20rpx;
+    color: white;
+    font-size: 32rpx;
+    text-align: center;
+    line-height: 75rpx;
+    border-radius: 20rpx;
+}
+
+.msg-scroll-view{
+    height: calc(100vh - 50px - env(safe-area-inset-bottom));
+}
+
+.msg-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 150rpx;
+}
+
+.msg-info-hover {
+    background-color: rgb(238, 238, 238);
+}
+
+.msg-info .avatar {
+    width: 180rpx;
+    height: 100%;
+    padding-top: 8rpx;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.msg-info .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: calc(100% - 300rpx);
+    height: 100%;
+}
+
+.msg-info .info .nickname {
+    font-size: 36rpx;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+
+.msg-info .info .msg {
+    font-size: 28rpx;
+    margin-top: 10rpx;
+    color: gray;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+
+.msg-info .count {
+    width: 120rpx;
+    height: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}

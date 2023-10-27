@@ -1,8 +1,9 @@
 {
     "pages": [
+        "pages/message/message",
         "pages/me/me",
         "pages/friend/friend",
-        "pages/message/message"
+        "pages/chatInfo/chatInfo"
     ],
     "window": {
         "backgroundTextStyle": "light",
@@ -27,7 +28,14 @@
     },
     "usingComponents": {
         "van-button": "@vant/weapp/button/index",
+        "van-divider": "@vant/weapp/divider/index",
+        "van-image": "@vant/weapp/image/index",
         "van-tabbar": "@vant/weapp/tabbar/index",
-        "van-tabbar-item": "@vant/weapp/tabbar-item/index"
+        "van-tabbar-item": "@vant/weapp/tabbar-item/index",
+        "van-empty": "@vant/weapp/empty/index",
+        "van-swipe-cell": "@vant/weapp/swipe-cell/index",
+        "van-cell": "@vant/weapp/cell/index",
+        "van-cell-group": "@vant/weapp/cell-group/index",
+        "van-tag": "@vant/weapp/tag/index"
     }
 }

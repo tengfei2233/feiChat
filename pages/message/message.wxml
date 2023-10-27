@@ -1,2 +1,21 @@
-<!--pages/message/message.wxml-->
-<text>pages/message/message.wxml</text>
+<van-divider custom-style="margin:0;" />
+<scroll-view scroll-y="{{true}}" wx:if="{{msgList.length>0}}" class="msg-scroll-view">
+    <van-swipe-cell right-width="{{ 65 }}" class="msg-swipe-cell" wx:for="{{msgList}}" wx:key="index" wx:for-item="msg" async-close bind:close="delChat" data-id="{{msg.id}}">
+        <view class="msg-info" hover-class="msg-info-hover" bindtap="toChatInfo" data-msg="{{msg}}">
+            <view class="avatar">
+                <van-image round width="120rpx" height="120rpx" src="{{msg.avatar}}" />
+            </view>
+            <view class="info">
+                <view class="nickname">{{msg.id}}. {{msg.nickname}}</view>
+                <view class="msg">{{msg.msg}}</view>
+            </view>
+            <view class="count">
+                <van-tag round type="danger">{{msg.msgCount}}</van-tag>
+            </view>
+        </view>
+        <view slot="right" class="van-swipe-cell__right">
+            <view class="del">删除</view>
+        </view>
+    </van-swipe-cell>
+</scroll-view>
+<van-empty description="暂无消息" wx:else />

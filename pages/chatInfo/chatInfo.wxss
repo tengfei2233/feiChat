@@ -1,0 +1,98 @@
+.body {
+    width: 100%;
+    height: calc(100vh - 150rpx);
+    background-color: #e7f8ff;
+}
+
+.body .body-scroll-view {
+    height: 100%;
+    flex: 1 1;
+}
+
+.chat-left {
+    display: flex;
+    flex-direction: row;
+    padding: 20rpx 20rpx;
+    box-sizing: border-box;
+}
+
+.chat-right {
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 20rpx 20rpx;
+    box-sizing: border-box;
+}
+
+.chat-info-left {
+    max-width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.chat-info-right {
+    max-width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.avatar{
+   
+}
+
+.msg-left{
+    font-size: 32rpx;
+    background-color: #fff;
+    border-radius: 32rpx;
+    padding: 20rpx;
+}
+.msg-right{
+    font-size: 32rpx;
+    background-color: skyblue;
+    border-radius: 32rpx;
+    padding: 20rpx;
+}
+
+.date{
+    font-size: 22rpx;
+    color: gray;
+    margin-top: 10rpx;
+}
+
+
+.footer {
+    width: 100%;
+    height: 150rpx;
+    background-color: #f7f7f7;
+    position: absolute;
+    bottom: 0;
+}
+
+.footer .send {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100rpx;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 10rpx;
+}
+
+.send .ipt {
+    background-color: #fff;
+    height: 90rpx;
+    width: calc(100vw - 130rpx);
+    border-radius: 50rpx;
+    margin-right: 20rpx;
+    padding: 0 20rpx;
+}
+
+.send .btn {
+    height: 80rpx;
+    width: 130rpx;
+    margin-left: 20rpx;
+    background-color: skyblue;
+    border: skyblue;
+}

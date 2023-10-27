@@ -1,0 +1,22 @@
+<van-divider custom-style="margin:0;" />
+<view class="body">
+    <scroll-view scroll-y="{{true}}" wx:if="{{msgList.length>0}}" class="body-scroll-view">
+        <view class="{{msg.type==0?'chat-right':'chat-left'}}" wx:for="{{msgList}}" wx:key="index" wx:for-item="msg">
+            <view class="{{msg.type==0?'chat-info-right':'chat-info-left'}}">
+                <view class="avatar">
+                    <van-image round width="80rpx" height="80rpx" src="{{msg.avatar}}" />
+                </view>
+                <view class="{{msg.type==0?'msg-right':'msg-left'}}">{{msg.msg}}</view>
+                <view class="date">{{msg.date}}</view>
+            </view>
+        </view>
+    </scroll-view>
+    <van-empty description="暂无消息" wx:else />
+</view>
+<van-divider custom-style="margin:0;" />
+<view class="footer">
+    <view class="send">
+        <input class="ipt" bindinput="bindInput" />
+        <van-button custom-class="btn" round type="info" disabled="{{iptVal.length<=0}}" bind:click="sendMsg">发送</van-button>
+    </view>
+</view>
