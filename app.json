@@ -1,12 +1,33 @@
 {
-  "pages":[
-    "pages/index/index"
-  ],
-  "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
-    "navigationBarTextStyle":"black"
-  },
-  "sitemapLocation": "sitemap.json"
+    "pages": [
+        "pages/me/me",
+        "pages/friend/friend",
+        "pages/message/message"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "Weixin",
+        "navigationBarTextStyle": "black"
+    },
+    "sitemapLocation": "sitemap.json",
+    "tabBar": {
+        "custom": true,
+        "list": [
+            {
+                "pagePath": "pages/message/message"
+            },
+            {
+                "pagePath": "pages/friend/friend"
+            },
+            {
+                "pagePath": "pages/me/me"
+            }
+        ]
+    },
+    "usingComponents": {
+        "van-button": "@vant/weapp/button/index",
+        "van-tabbar": "@vant/weapp/tabbar/index",
+        "van-tabbar-item": "@vant/weapp/tabbar-item/index"
+    }
 }
