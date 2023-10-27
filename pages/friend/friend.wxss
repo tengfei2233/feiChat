@@ -1,1 +1,41 @@
-/* pages/friend/friend.wxss */
+.header {
+    width: 100%;
+    height: 100rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.header .ipt {
+    background-color: #f7f7f7;
+    height: 80rpx;
+    width: calc(100vw - 160rpx);
+    border-radius: 50rpx;
+    padding: 0 20rpx;
+    margin-left: 20rpx;
+}
+
+.header .search {
+    height: 80rpx;
+    width: 80rpx;
+    font-size: 35rpx;
+    background-color: skyblue;
+    border: skyblue;
+}
+
+.header .add {
+    height: 80rpx;
+    width: 80rpx;
+    margin-left: 20rpx;
+    margin-right: 20rpx;
+    font-size: 35rpx;
+}
+
+.friend-scroll-view{
+    height: calc(100vh - 150px - env(safe-area-inset-bottom)) !important;
+}
+
+/* .index-bar{
+    
+} */

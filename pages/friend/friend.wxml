@@ -1,8 +1,178 @@
-<!-- <van-divider custom-style="margin:0;" /> -->
-<van-swipe-cell right-width="{{ 65 }}" left-width="{{ 65 }}">
-    <view slot="left" class="van-swipe-cell__left">选择</view>
-    <van-cell-group>
-        <van-cell title="单元格" value="内容" />
-    </van-cell-group>
-    <view slot="right" class="van-swipe-cell__right">删除</view>
-</van-swipe-cell>
+<van-divider custom-style="margin:0;" />
+<view class="header">
+    <input class="ipt" bindinput="bindInput" />
+    <van-button custom-class="search" round type="info" disabled="{{searchVal.length<=0}}" bind:click="search" icon="search" />
+    <van-button custom-class="add" plain round bind:click="add" icon="plus" />
+</view>
+<!-- <scroll-view scroll-y="{{true}}" class="friend-scroll-view">
+    <van-index-bar class="index-bar" z-index="100">
+        <view>
+            <van-index-anchor index="A" />
+            <van-cell title="文本" />
+            <van-cell title="文本" />
+            <van-cell title="文本" />
+        </view>
+
+        <view>
+            <van-index-anchor index="B" />
+            <van-cell title="文本" />
+            <van-cell title="文本" />
+            <van-cell title="文本" />
+        </view>
+        <view>
+            <van-index-anchor index="C" />
+            <van-cell title="文本" />
+            <van-cell title="文本" />
+            <van-cell title="文本" />
+        </view>
+        <view>
+            <van-index-anchor index="D" />
+            <van-cell title="文本" />
+            <van-cell title="文本" />
+            <van-cell title="文本" />
+        </view>
+        <view>
+            <van-index-anchor index="E" />
+            <van-cell title="文本" />
+            <van-cell title="文本" />
+            <van-cell title="文本" />
+        </view>
+        <view>
+            <van-index-anchor index="F" />
+            <van-cell title="文本" />
+            <van-cell title="文本" />
+            <van-cell title="文本" />
+        </view>
+        <view>
+            <van-index-anchor index="G" />
+            <van-cell title="文本" />
+            <van-cell title="文本" />
+            <van-cell title="文本" />
+        </view>
+        <view>
+            <van-index-anchor index="H" />
+            <van-cell title="文本" />
+            <van-cell title="文本" />
+            <van-cell title="文本" />
+        </view>
+        <view>
+            <van-index-anchor index="I" />
+            <van-cell title="文本" />
+            <van-cell title="文本" />
+            <van-cell title="文本" />
+        </view>
+        <view>
+            <van-index-anchor index="J" />
+            <van-cell title="文本" />
+            <van-cell title="文本" />
+            <van-cell title="文本" />
+        </view>
+        <view>
+            <van-index-anchor index="K" />
+            <van-cell title="文本" />
+            <van-cell title="文本" />
+            <van-cell title="文本" />
+        </view>
+        <view>
+            <van-index-anchor index="L" />
+            <van-cell title="文本" />
+            <van-cell title="文本" />
+            <van-cell title="文本" />
+        </view>
+        <view>
+            <van-index-anchor index="M" />
+            <van-cell title="文本" />
+            <van-cell title="文本" />
+            <van-cell title="文本" />
+        </view>
+        <view>
+            <van-index-anchor index="N" />
+            <van-cell title="文本" />
+            <van-cell title="文本" />
+            <van-cell title="文本" />
+        </view>
+        <view>
+            <van-index-anchor index="O" />
+            <van-cell title="文本" />
+            <van-cell title="文本" />
+            <van-cell title="文本" />
+        </view>
+        <view>
+            <van-index-anchor index="P" />
+            <van-cell title="文本" />
+            <van-cell title="文本" />
+            <van-cell title="文本" />
+        </view>
+        <view>
+            <van-index-anchor index="Q" />
+            <van-cell title="文本" />
+            <van-cell title="文本" />
+            <van-cell title="文本" />
+        </view>
+        <view>
+            <van-index-anchor index="R" />
+            <van-cell title="文本" />
+            <van-cell title="文本" />
+            <van-cell title="文本" />
+        </view>
+        <view>
+            <van-index-anchor index="S" />
+            <van-cell title="文本" />
+            <van-cell title="文本" />
+            <van-cell title="文本" />
+        </view>
+        <view>
+            <van-index-anchor index="T" />
+            <van-cell title="文本" />
+            <van-cell title="文本" />
+            <van-cell title="文本" />
+        </view>
+        <view>
+            <van-index-anchor index="U" />
+            <van-cell title="文本" />
+            <van-cell title="文本" />
+            <van-cell title="文本" />
+        </view>
+        <view>
+            <van-index-anchor index="V" />
+            <van-cell title="文本" />
+            <van-cell title="文本" />
+            <van-cell title="文本" />
+        </view>
+        <view>
+            <van-index-anchor index="W" />
+            <van-cell title="文本" />
+            <van-cell title="文本" />
+            <van-cell title="文本" />
+        </view>
+        <view>
+            <van-index-anchor index="X" />
+            <van-cell title="文本" />
+            <van-cell title="文本" />
+            <van-cell title="文本" />
+        </view>
+        <view>
+            <van-index-anchor index="Y" />
+            <van-cell title="文本" />
+            <van-cell title="文本" />
+            <van-cell title="文本" />
+        </view>
+        <view>
+            <van-index-anchor index="Z" />
+            <van-cell title="文本" />
+            <van-cell title="文本" />
+            <van-cell title="文本" />
+        </view>
+    </van-index-bar>
+</scroll-view> -->
+
+<mp-indexList class="city__list" list="{{list}}" bindchoose="onChoose">
+    <view class="page">
+        <view class="page__hd">
+            <view class="page__title">Index List</view>
+            <view class="page__desc">类通讯录列表</view>
+        </view>
+        <view class="page__bd">
+        </view>
+    </view>
+</mp-indexList>
