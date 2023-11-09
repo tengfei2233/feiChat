@@ -1,57 +1,67 @@
-const res = {
-    result: [
-        [{
-            cidx: [0, 15],
-            fullname: "北京市",
-            id: "110000",
-            location: {
-                lat: 39.90469,
-                lng: 116.40717
-            },
-            name: "北京",
-            pinyin: ["bei", "jing"]
-        }, {
-            cidx: [16, 31],
-            fullname: "天津市",
-            id: "120000",
-            location: {
-                lat: 39.0851,
-                lng: 117.19937
-            },
-            name: "天津",
-            pinyin: ["tian", "jin"]
-        }, {
-            cidx: [32, 42],
-            fullname: "河北省",
-            id: "130000",
-            location: {
-                lat: 38.03599,
-                lng: 114.46979
-            },
-            name: "河北",
-            pinyin: ["he", "bei"],
-        }, {
-            cidx: [43, 53],
-            fullname: "山西省",
-            id: "140000",
-            location: {
-                lat: 37.87343,
-                lng: 112.56272
-            },
-            name: "山西",
-            pinyin: ["shan", "xi"],
-        }]
-    ]
-}
+import {
+    pinyin
+} from 'pinyin-pro';
+
+const friendList = [{
+        id: 1,
+        nickname: "张三"
+    },
+    {
+        id: 2,
+        nickname: "放大三"
+    },
+    {
+        id: 3,
+        nickname: "啊张三"
+    },
+    {
+        id: 4,
+        nickname: "让他张三"
+    },
+    {
+        id: 5,
+        nickname: "爱人张三"
+    },
+    {
+        id: 6,
+        nickname: "那天张三"
+    },
+    {
+        id: 7,
+        nickname: "没张三"
+    },
+    {
+        id: 8,
+        nickname: "哦张三"
+    },
+    {
+        id: 9,
+        nickname: "从张三"
+    },
+    {
+        id: 10,
+        nickname: "在张三"
+    },
+    {
+        id: 11,
+        nickname: "@在张三"
+    },
+    {
+        id: 12,
+        nickname: "3在@张三"
+    },
+]
+
 
 Page({
 
     data: {
-        searchVal: ''
+        searchVal: '',
+        sortFriendlist: []
     },
 
     onLoad(options) {
-        this.getCitys()
+        this.getFriendList()
     },
 
     onChoose(e) {
@@ -69,41 +79,57 @@ Page({
 
     },
 
-    getCitys() {
-        const _this = this
-        const cities = res.result[0]
+    getFriendList() {
+        const friends = friendList
         // 按拼音排序
-        cities.sort((c1, c2) => {
-            let pinyin1 = c1.pinyin.join('')
-            let pinyin2 = c2.pinyin.join('')
-            return pinyin1.localeCompare(pinyin2)
+        friends.sort((c1, c2) => {
+            // 获取每个昵称第一个拼音
+            let p1 = pinyin(c1.nickname, {
+                toneType: 'none',
+                type: 'array'
+            })[0];
+            let p2 = pinyin(c2.nickname, {
+                toneType: 'none',
+                type: 'array'
+            })[0]
+            return p1.localeCompare(p2)
         })
-        // 添加首字母
-        const map = new Map()
-        for (const city of cities) {
-            const alpha = city.pinyin[0].charAt(0).toUpperCase()
-            if (!map.has(alpha)) map.set(alpha, [])
-            map.get(alpha).push({
-                name: city.fullname
-            })
-        }
-
-        const keys = []
-        for (const key of map.keys()) {
-            keys.push(key)
-        }
-        keys.sort()
-
-        const list = []
-        for (const key of keys) {
+        console.log("friends:",friends);
+        const map = new Map();
+        const otherNick = [];
+        const sortIdx = []
+        friends.forEach((item, index) => {
+            // 昵称首字母
+            let firstChat = pinyin(item.nickname,{ toneType: 'none' }).charAt(0);
+            console.log(firstChat);
+            // 是否是字母
+            if (/^[a-z]$/.test(firstChat)) {
+                firstChat = firstChat.toUpperCase();
+                if (!map.has(firstChat)) {
+                    sortIdx.push(firstChat);
+                    map.set(firstChat, [])
+                }
+                map.get(firstChat).push(item)
+            } else {
+                otherNick.push(item)
+            }
+        })
+        console.log("map:",map);
+        console.log("otherNick:",otherNick);
+        let list = []
+        sortIdx.forEach(key => {
             list.push({
                 alpha: key,
                 subItems: map.get(key)
             })
-        }
-
-        _this.setData({
-            list
+        })
+        list.push({
+            alpha: "#",
+            subItems: otherNick
+        })
+        console.log("list:", list);
+        this.setData({
+            sortFriendlist:list
         })
     }
 

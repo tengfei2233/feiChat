@@ -1,4 +1,7 @@
 {
-    "usingComponents": {},
+    "usingComponents": {
+        "index-list": "/components/index-list-group/index-list/index-list",
+        "item": "/components/index-list-group/item/item"
+    },
     "navigationBarTitleText": "好友列表"
 }

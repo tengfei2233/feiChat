@@ -32,10 +32,6 @@
     font-size: 35rpx;
 }
 
-.friend-scroll-view{
+.friend-list{
     height: calc(100vh - 150px - env(safe-area-inset-bottom)) !important;
 }
-
-/* .index-bar{
-    
-} */
